@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  db:
+    container_name: mysql_db
+    image: mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+    volumes:
+      - mysql:/data/mysql
+    ports:
+      - "3306:3306"
+
+  phpmyadmin:
+    container_name: phpmyadmin
+    image: phpmyadmin
+    restart: unless-stopped
+    ports:
+      - "8082:80"
+    links:
+      - db:mysql_db
+
+volumes:
+  mysql:
