@@ -1,0 +1,35 @@
+### Variables 
+@apiurl = http://localhost:3000
+
+### Home Page
+GET {{apiurl}} HTTP/1.1
+
+### Page not found
+GET {{apiurl}}/anything HTTP/1.1
+
+### Create a post
+POST {{apiurl}}/blogs HTTP/1.1
+Content-Type: application/json
+
+{
+    "title": "My first post",
+    "description": "This is my first post"
+}
+
+### Fetch all the available created blogs.
+GET {{apiurl}}/blogs HTTP/1.1
+
+### Fetch only one blog
+GET {{apiurl}}/blogs/1 HTTP/1.1
+
+### Update one blog
+PUT {{apiurl}}/blogs/1 HTTP/1.1
+Content-Type: application/json
+
+{
+    "title": "First Blog Post",
+    "description": "This is the blog description"
+}
+
+### Delete one blog
+DELETE {{apiurl}}/blogs/1
