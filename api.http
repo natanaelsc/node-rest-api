@@ -1,0 +1,27 @@
+# Home Page:
+GET http://localhost:3000
+###
+# Page not found
+GET http://localhost:3000/anything
+###
+# Create a post:
+POST http://localhost:3000/create
+
+{
+    "title": "First Blog Post",
+    "description": "This is the blog description"
+}
+###
+# Fetch all the available created blogs.
+GET http://localhost:3000/blogs
+###
+# Fetch only one blog of blog_id = 1.
+GET http://localhost:3000/blogs/1
+###
+# Update one blog of blog_id = 1
+PUT http://localhost:3000/update/1
+
+{
+    "title": "First Blog Post",
+    "description": "This is the blog description"
+}
