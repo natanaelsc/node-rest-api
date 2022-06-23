@@ -5,21 +5,21 @@ GET http://localhost:3000
 GET http://localhost:3000/anything
 ###
 # Create a post:
-POST http://localhost:3000/create
+POST http://localhost:3000/blogs
 
 {
-    "title": "First Blog Post",
-    "description": "This is the blog description"
+    "title": "My first post",
+    "description": "This is my first post"
 }
 ###
 # Fetch all the available created blogs.
 GET http://localhost:3000/blogs
 ###
-# Fetch only one blog of blog_id = 1.
+# Fetch only one blog of id = 1.
 GET http://localhost:3000/blogs/1
 ###
-# Update one blog of blog_id = 1
-PUT http://localhost:3000/update/1
+# Update one blog of id = 1
+PUT http://localhost:3000/blogs/1
 
 {
     "title": "First Blog Post",
