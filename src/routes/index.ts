@@ -12,6 +12,13 @@ class Routes {
       responses.ok(codes.ok(), messages.welcomeMessage(), res);
     });
 
+    app.get("/about", (_: Request, res: Response) => {
+      responses.ok(codes.ok(), "About Us", res);
+    });
+    app.get("/contact", (_: Request, res: Response) => {
+      responses.ok(codes.ok(), "Contact Us", res);
+    });
+
     app.get("/blogs", Blog.findBlogs);
     app.get("/blogs/:id", Blog.findOneBlog);
     app.post("/blogs", Blog.createBlog);
@@ -19,7 +26,7 @@ class Routes {
     app.delete("/blogs/:id", Blog.deleteBlog);
 
     app.all("*", (_: Request, res: Response) => {
-      responses.ok(codes.notFound(), messages.pageNotFound(), res);
+      responses.error(codes.notFound(), messages.pageNotFound(), res);
     });
   };
 }
