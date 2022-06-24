@@ -1,10 +1,10 @@
 import { Request, Response, Application } from "express";
-import BlogControllers from "../controllers/blogControllers";
+import { controllers } from './../controllers/index';
 import { middlewares } from "../middlewares";
 
 const { responses, messages, codes } = middlewares;
 
-const Blog = new BlogControllers();
+const { blogController } = controllers
 
 class Routes {
   public router = (app: Application): any => {
@@ -19,11 +19,11 @@ class Routes {
       responses.ok(codes.ok(), "Contact Us", res);
     });
 
-    app.get("/blogs", Blog.findBlogs);
-    app.get("/blogs/:id", Blog.findOneBlog);
-    app.post("/blogs", Blog.createBlog);
-    app.put("/blogs/:id", Blog.updateBlog);
-    app.delete("/blogs/:id", Blog.deleteBlog);
+    app.get("/blogs", blogController.findAll);
+    app.get("/blogs/:id", blogController.findOne);
+    app.post("/blogs", blogController.create);
+    app.put("/blogs/:id", blogController.update);
+    app.delete("/blogs/:id", blogController.delete);
 
     app.all("*", (_: Request, res: Response) => {
       responses.error(codes.notFound(), messages.pageNotFound(), res);

@@ -1,5 +1,5 @@
 import BlogService from "./blogService";
 
-export default {
-    blog: new BlogService(),
+export const services = {
+    blogService: new BlogService(),
 }
