@@ -1,25 +1,42 @@
 version: '3'
 
 services:
-  db:
-    container_name: mysql_db
+  app:
+    build: .
+    entrypoint: ./.docker/entrypoint.sh
+    ports: 
+      - 3000:3000
+    volumes:
+      - .:/home/node/app
+    depends_on:
+      phpmyadmin:
+        condition: service_started
+      mysql:
+        condition: service_healthy
+    links:
+      - mysql
+    network_mode: host
+      
+  mysql:
     image: mysql
-    restart: unless-stopped
+    restart: always
     environment:
       MYSQL_ROOT_PASSWORD: password
     volumes:
-      - mysql:/data/mysql
+      - ./.docker/mysql:/data/db
     ports:
       - "3306:3306"
-
+      - "33060:33060"
+    healthcheck:
+      test: "exit 0"
+    
   phpmyadmin:
-    container_name: phpmyadmin
-    image: phpmyadmin
-    restart: unless-stopped
+    image: phpmyadmin:fpm-alpine
+    restart: always
     ports:
       - "8082:80"
+    depends_on:
+      mysql:
+        condition: service_healthy
     links:
-      - db:mysql_db
-
-volumes:
-  mysql:
+      - mysql
