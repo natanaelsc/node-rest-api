@@ -1,8 +1,14 @@
 # API Restful Simples
 
-## Descrição
+![node version](https://img.shields.io/badge/Node-v_16.15.1-339933?logo=node.js)
+![npm version](https://img.shields.io/badge/npm-v_8.11.0-CB3837?logo=npm)
+![repo size](https://img.shields.io/github/repo-size/natanaelsc96/node-rest-api?logo=gitlfs&logoColor=F64935&color=F64935)
 
-CRUD (Create, Read, Update, Delete) simples de criação de blog com ideias básicas de como o design e conexão com bando de dados utilizando [Prisma](https://www.prisma.io/) com [MySQL](https://www.mysql.com/), [NodeJs](https://nodejs.org/pt-br/) e [Typescript](https://www.typescriptlang.org/) funciona e também como realizar solicitações simples e obter respostas do banco de dados através de requisições http.
+[Projeto](#projeto) | [Ambiente](#ambiente) | [Execução](#execução)
+
+## Projeto
+
+CRUD simples com ideias básicas de como o design e conexão com bando de dados utilizando [Prisma](https://www.prisma.io/) com [MySQL](https://www.mysql.com/), [NodeJs](https://nodejs.org/pt-br/) e [Typescript](https://www.typescriptlang.org/) funciona e também como realizar solicitações simples e obter respostas do banco de dados através de requisições http.
 
 ## Ambiente
 
